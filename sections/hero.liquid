@@ -1,0 +1,25 @@
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ section.settings.eyebrow | default: "Premium Pet Products" }}</p>
+    <h1>{{ section.settings.heading | default: "Get Your Pet Sniff'd." }}</h1>
+    <p>{{ section.settings.subheading | default: "Harm-free fragrances, spa-grade shampoos, and vet-loved supplements — because your best friend deserves the good stuff." }}</p>
+    <div class="hero__actions">
+      <a href="{{ section.settings.primary_link | default: '/collections/all' }}" class="btn btn--olive">Shop All Products</a>
+      <a href="{{ section.settings.secondary_link | default: '/collections/fragrances' }}" class="btn btn--outline">Explore Fragrances</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Premium Pet Products" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get Your Pet Sniff'd." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

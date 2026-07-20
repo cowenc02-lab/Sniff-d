@@ -1,0 +1,21 @@
+<div class="container" style="padding:60px 24px 100px;">
+  <div class="collection-header" style="padding:0 0 20px;">
+    <p class="eyebrow">Search</p>
+    <h1>{% if search.performed %}Results for "{{ search.terms }}"{% else %}Search{% endif %}</h1>
+  </div>
+
+  <form action="{{ routes.search_url }}" method="get" role="search" style="max-width:420px; margin:0 auto 40px; display:flex; gap:8px;">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products..." class="qty-input" style="width:100%; border-radius:999px; padding:12px 18px;">
+    <input type="hidden" name="type" value="product">
+    <button type="submit" class="btn btn--olive">Go</button>
+  </form>
+
+  {% if search.performed %}
+    <div class="product-grid">
+      {% for item in search.results %}
+        {% render 'product-card', product: item %}
+      {% endfor %}
+    </div>
+    {% if search.results_count == 0 %}<p style="text-align:center;">No sniffs found. Try another search.</p>{% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,46 @@
+<section class="container" style="padding: 70px 24px;">
+  <div class="section-heading">
+    <p class="eyebrow">{{ section.settings.eyebrow | default: "Fan Favorites" }}</p>
+    <h2>{{ section.settings.heading | default: "Bestsellers, tail-wag approved." }}</h2>
+    {% if section.settings.subheading %}<p>{{ section.settings.subheading }}</p>{% endif %}
+  </div>
+
+  <div class="product-grid">
+    {% assign collection = collections[section.settings.collection] %}
+    {% if collection and collection.products.size > 0 %}
+      {% for product in collection.products limit: section.settings.products_to_show %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    {% else %}
+      {% comment %} Placeholder cards for preview before products are added {% endcomment %}
+      {% for i in (1..4) %}
+        <div class="product-card">
+          <div class="product-card__image">{{ 'product-1' | placeholder_svg_tag }}</div>
+          <div class="product-card__body">
+            <span class="product-card__type">Sample</span>
+            <h3 class="product-card__title">Add products to this collection</h3>
+            <div class="product-card__price">$0.00</div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <div style="text-align:center; margin-top: 44px;">
+    <a href="{{ collection.url | default: '/collections/all' }}" class="btn btn--outline">Shop All</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Fan Favorites" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Bestsellers, tail-wag approved." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 2, "max": 12, "step": 1, "default": 8 }
+  ],
+  "presets": [{ "name": "Featured collection" }]
+}
+{% endschema %}

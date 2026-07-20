@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": { "type": "hero" },
+    "category-tiles": { "type": "category-tiles" },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Fan Favorites",
+        "heading": "Bestsellers, tail-wag approved.",
+        "subheading": "The stuff pets sniff twice for.",
+        "collection": "all",
+        "products_to_show": 8
+      }
+    },
+    "brand-story": { "type": "brand-story" }
+  },
+  "order": ["hero", "category-tiles", "featured", "brand-story"]
+}

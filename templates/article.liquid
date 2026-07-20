@@ -1,0 +1,6 @@
+<div class="container" style="padding:60px 24px 100px; max-width:760px;">
+  <p class="eyebrow">{{ article.published_at | date: '%B %d, %Y' }}</p>
+  <h1>{{ article.title }}</h1>
+  {% if article.image %}<img src="{{ article.image | image_url: width: 900 }}" alt="{{ article.title | escape }}" style="border-radius:14px; margin:20px 0;">{% endif %}
+  <div style="color:var(--color-gray-dark); line-height:1.7;">{{ article.content }}</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container" style="padding:60px 24px 100px;">
+  <div class="collection-header" style="padding:0 0 20px;">
+    <p class="eyebrow">Shop</p>
+    <h1>All Collections</h1>
+  </div>
+  <div class="category-tiles__grid">
+    {% for collection in collections %}
+      <a href="{{ collection.url }}" class="category-tile category-tile--olive">
+        <h3>{{ collection.title }}</h3>
+        <span>{{ collection.products_count }} products</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>

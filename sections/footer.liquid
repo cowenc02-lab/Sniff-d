@@ -1,0 +1,57 @@
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <div class="site-footer__logo">{{ section.settings.logo_text | default: "Sniff'd" }}</div>
+      <p style="opacity:0.75; font-size:14.5px; max-width:280px;">
+        {{ section.settings.blurb | default: "Sniffed, approved, tail-wagged. Premium shampoos, fragrances & supplements made for good boys and girls." }}
+      </p>
+    </div>
+
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="/collections/fragrances">Fragrances</a></li>
+        <li><a href="/collections/shampoos">Shampoos</a></li>
+        <li><a href="/collections/supplements">Supplements</a></li>
+        <li><a href="/collections/all">All Products</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Sniff'd</h4>
+      <ul>
+        <li><a href="/pages/about">Our Story</a></li>
+        <li><a href="/pages/faq">FAQ</a></li>
+        <li><a href="/pages/contact">Contact</a></li>
+        <li><a href="/pages/shipping">Shipping & Returns</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Get the good stuff</h4>
+      <p style="opacity:0.8; font-size:14px;">First sniff of new scents, treats & 10% off.</p>
+      {% form 'customer' %}
+        <div class="newsletter-form">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="you@email.com" required>
+          <button type="submit">Join</button>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <span>&copy; {{ 'now' | date: '%Y' }} Sniff'd Premium Pet Products. All rights reserved.</span>
+    <span>Est. 2026 &middot; Harm-free, always.</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "Logo text", "default": "Sniff'd" },
+    { "type": "textarea", "id": "blurb", "label": "Footer blurb" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,12 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_cream": "#F6F4ED",
+      "color_olive": "#434B2E",
+      "color_gray": "#79766E",
+      "color_purple": "#8C6D9F",
+      "color_pink": "#D4839F"
+    }
+  }
+}
