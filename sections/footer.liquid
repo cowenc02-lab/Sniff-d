@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="site-footer__grid">
     <div>
-      <div class="site-footer__logo">{{ section.settings.logo_text | default: "Sniff'd" }}</div>
+      <div class="site-footer__logo"><img src="{{ 'sniffd-wordmark.png' | asset_url }}" alt="{{ section.settings.logo_text | default: "Sniff'd" }}" class="site-footer__logo-img" width="120" height="32"></div>
       <p style="opacity:0.75; font-size:14.5px; max-width:280px;">
         {{ section.settings.blurb | default: "Sniffed, approved, tail-wagged. Premium shampoos, fragrances & supplements made for good boys and girls." }}
       </p>

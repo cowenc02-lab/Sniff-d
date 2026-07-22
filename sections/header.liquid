@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="site-header__inner container">
-    <a href="{{ routes.root_url }}" class="site-header__logo">{{ section.settings.logo_text | default: "Sniff'd" }}</a>
+    <a href="{{ routes.root_url }}" class="site-header__logo"><img src="{{ 'sniffd-wordmark.png' | asset_url }}" alt="{{ section.settings.logo_text | default: "Sniff'd" }}" class="site-header__logo-img" width="140" height="37"></a>
 
     <nav>
       <ul class="site-header__nav">
